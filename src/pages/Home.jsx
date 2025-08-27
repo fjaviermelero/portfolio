@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import ExperienceSection from "../components/ExperienceSection";
 import ProjectSection from "../components/ProjectSection";
+import ContactSection from "../components/ContactSection";
 
 export const Home = () => {
     return (
@@ -15,6 +16,8 @@ export const Home = () => {
             <ExperienceSection />
 
             <ProjectSection/>
+
+            <ContactSection/>
 
             <Footer />
             

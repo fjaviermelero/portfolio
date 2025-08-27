@@ -10,7 +10,12 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center h-screen bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-700 text-white text-center px-4">
+    <section className="flex flex-col justify-center items-center h-screen text-white text-center px-4"
+      style={{
+        background: "linear-gradient(180deg, #1e3a8a, #4338ca, #6366f1)"
+      }}
+      >
+
       {/* Animación del texto */}
       <motion.h1
         className="text-4xl md:text-6xl font-bold mb-4"
@@ -18,7 +23,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        ¡Hola! Soy <span className="text-indigo-300">Tu Nombre</span>
+        ¡Hi! I am <span className="text-indigo-300">Francisco Melero</span>
       </motion.h1>
 
       <motion.p
@@ -27,7 +32,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        Ingeniero de Industria 4.0 | Apasionado por la automatización, la tecnología y la innovación digital
+      4.0 Industry Data Expert | Process and Project Engineer
       </motion.p>
 
       {/* Botón scroll */}
@@ -38,7 +43,7 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        Ver mi experiencia
+        See my Experience
         <ChevronDown className="animate-bounce" />
       </motion.button>
     </section>
