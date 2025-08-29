@@ -1,12 +1,11 @@
 import ProjectCard from "./ProjectCard";
-import tempSeries from "../assets/images/TempSeries.png"; // importa tus imágenes aquí
+import IndustrialPredictionImage from "../assets/images/IndustrialPrediction.png";
+import ChatCoachImage from "../assets/images/ChatCoach.png";
 
 export default function ProjectsSection() {
   const projects = [
-    { title: "Sistema de trazabilidad", image: tempSeries, link: "/project/DemandPrediction" },
-    { title: "Automatización de almacén", image: tempSeries, link: "/project/DemandPrediction" },
-    { title: "Integración Jenkins", image: tempSeries, link: "/project/DemandPrediction" },
-    { title: "Proyecto Extra", image: tempSeries, link: "/project/DemandPrediction" },
+    { title: "Industrial Workload Predictor", image: IndustrialPredictionImage, link: "/project/DemandPrediction" },
+    { title: "ChatCoach", image: ChatCoachImage, link: "/project/DemandPrediction" },
   ];
 
   // Determinar número de columnas dinámicamente según cantidad de proyectos
@@ -19,7 +18,7 @@ export default function ProjectsSection() {
   return (
     <section id="proyectos" className="container mx-auto px-4 py-20">
     <h2 className="text-3xl font-bold mb-12 text-center text-gray-100">
-      My Projects
+      Some of my  Projects
     </h2>
 
       <div className={`grid grid-cols-1 sm:grid-cols-2 lg:${columnsClass} gap-8 justify-center`}>

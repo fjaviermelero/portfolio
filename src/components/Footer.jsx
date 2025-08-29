@@ -1,41 +1,49 @@
+import { Linkedin, Mail, Github } from "lucide-react";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+    <footer className="bg-gray-800 text-white py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 items-center">
         
-        {/* Sección de contacto */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">Contacto</h3>
-          <p>Email: contacto@miweb.com</p>
-          <p>Tel: +34 600 123 456</p>
+        {/* Branding */}
+        <div className="text-center md:text-left">
+          <h3 className="text-xl font-bold text-indigo-400">Francisco Melero</h3>
+          <p className="text-gray-400 text-sm">Industry 4.0 Data Expert</p>
         </div>
 
-        {/* Sección de enlaces */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">Enlaces</h3>
-          <ul>
-            <li><a href="#" className="hover:text-gray-300">Inicio</a></li>
-            <li><a href="#" className="hover:text-gray-300">Servicios</a></li>
-            <li><a href="#" className="hover:text-gray-300">Nosotros</a></li>
-            <li><a href="#" className="hover:text-gray-300">Blog</a></li>
-          </ul>
-        </div>
+        {/* Links */}
+        <div className="flex justify-center md:justify-end space-x-6">
+          <a 
+            href="https://www.linkedin.com/in/francisco-javier-melero-bb4337147/" 
+            target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <Linkedin className="w-5 h-5" /> 
+            <span>LinkedIn</span>
+          </a>
 
-        {/* Sección de redes sociales */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">Síguenos</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-gray-300">Facebook</a>
-            <a href="#" className="hover:text-gray-300">Twitter</a>
-            <a href="#" className="hover:text-gray-300">Instagram</a>
-            <a href="#" className="hover:text-gray-300">LinkedIn</a>
-          </div>
-        </div>
+          <a 
+            href="mailto:franciscomelero@gmail.com" 
+            className="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <Mail className="w-5 h-5" /> 
+            <span>Email</span>
+          </a>
 
+          <a 
+            href="https://github.com/fjaviermelero" 
+            target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <Github className="w-5 h-5" /> 
+            <span>GitHub</span>
+          </a>
+        </div>
       </div>
 
-      <div className="mt-8 text-center text-gray-400 text-sm">
-        &copy; {new Date().getFullYear()} MiWeb. Todos los derechos reservados.
+      {/* Línea separadora + copyright */}
+      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
+        &copy; {new Date().getFullYear()} Francisco Javier Melero Alegría.
       </div>
     </footer>
   );

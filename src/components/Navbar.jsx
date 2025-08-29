@@ -1,26 +1,69 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false); // desplegable proyectos
 
   // Función para cerrar menú móvil al hacer click
   const handleLinkClick = () => {
     setIsOpen(false);
+    setIsProjectsOpen(false);
   };
 
   return (
-    <nav className="bg-blue-600 text-white sticky top-0 z-50 h-16">
+    <nav className="bg-blue-600 text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 text-2xl font-bold">MiLogo</div>
+          <div className="w-12 h-12 rounded-full bg-white text-blue-600 flex items-center justify-center font-bold">
+            FM
+          </div>
 
           {/* Menú escritorio */}
-          <div className="hidden md:flex space-x-6">
-            <a href="#inicio" className="hover:text-gray-200">Inicio</a>
-            <a href="#experiencia" className="hover:text-gray-200">Experiencia</a>
-            <a href="#proyectos" className="hover:text-gray-200">Proyectos</a>
+          <div className="hidden md:flex items-center space-x-6">
+            <a href="#inicio" className="hover:text-gray-200 transition-colors">
+              Home
+            </a>
+            <a href="#experiencia" className="hover:text-gray-200 transition-colors">
+              Experience
+            </a>
+
+            {/* Dropdown proyectos */}
+            <div className="relative">
+              <button
+                onClick={() => setIsProjectsOpen(!isProjectsOpen)}
+                className="flex items-center gap-1 hover:text-gray-200 transition-colors"
+              >
+                Projects <ChevronDown className="w-4 h-4" />
+              </button>
+              {isProjectsOpen && (
+                <div className="absolute mt-2 bg-blue-700 rounded-md shadow-lg min-w-max py-2">
+                  <a
+                    href="#proyecto1"
+                    className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                    onClick={handleLinkClick}
+                  >
+                    Industrial Workload Predictor
+                  </a>
+                  <a
+                    href="#proyecto2"
+                    className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                    onClick={handleLinkClick}
+                  >
+                    ChatCoach
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Contacto */}
+            <a
+              href="#contacto"
+              className="hover:text-gray-200 transition-colors"
+            >
+              Contact
+            </a>
           </div>
 
           {/* Botón menú móvil */}
@@ -47,14 +90,49 @@ export default function Navbar() {
             className="block px-4 py-2 hover:bg-blue-500"
             onClick={handleLinkClick}
           >
-            Experiencia
+            Experience
           </a>
+
+          {/* Submenú móvil proyectos */}
+          <div>
+            <button
+              onClick={() => setIsProjectsOpen(!isProjectsOpen)}
+              className="w-full text-left px-4 py-2 flex items-center justify-between hover:bg-blue-500"
+            >
+              Projects{" "}
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  isProjectsOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {isProjectsOpen && (
+              <div className="bg-blue-600">
+                <a
+                  href="#proyecto1"
+                  className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                  onClick={handleLinkClick}
+                >
+                  Industrial Workload Predictor
+                </a>
+                <a
+                  href="#proyecto2"
+                  className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                  onClick={handleLinkClick}
+                >
+                  ChatCoach
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Contacto móvil */}
           <a
-            href="#proyectos"
+            href="#contacto"
             className="block px-4 py-2 hover:bg-blue-500"
             onClick={handleLinkClick}
           >
-            Proyectos
+            Contact
           </a>
         </div>
       )}
