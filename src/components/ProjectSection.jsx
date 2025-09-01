@@ -1,11 +1,11 @@
 import ProjectCard from "./ProjectCard";
 import IndustrialPredictionImage from "../assets/images/IndustrialPrediction.png";
-import ChatCoachImage from "../assets/images/ChatCoach.png";
+import ChatCoachImage from "../assets/images/ChatCoach.jpg";
 
 export default function ProjectsSection() {
   const projects = [
-    { title: "Industrial Workload Predictor", image: IndustrialPredictionImage, link: "/project/DemandPrediction" },
-    { title: "ChatCoach", image: ChatCoachImage, link: "/project/DemandPrediction" },
+    { title: "Industrial Workload Predictor", image: IndustrialPredictionImage, link: "/project/IndustrialPrediction" },
+    { title: "ChatCoach", image: ChatCoachImage, link: "/project/NotFound" },
   ];
 
   // Determinar número de columnas dinámicamente según cantidad de proyectos

@@ -33,7 +33,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experiencia" className="bg-gray-900 py-20">
+    <section id="experience" className="bg-gray-900 py-20">
       <h2 className="text-3xl font-bold mb-12 text-center text-gray-100">
         My Experience
       </h2>

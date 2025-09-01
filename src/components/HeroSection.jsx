@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToSection = () => {
-    const section = document.getElementById("experiencia");
+    const section = document.getElementById("experience");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }

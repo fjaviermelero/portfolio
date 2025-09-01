@@ -3,9 +3,9 @@ import { Linkedin, Github, Mail } from "lucide-react";
 export default function ContactSection() {
 
   return (
-    <section id="contacto" className="container mx-auto px-4 py-20">
+    <section id="contact" className="container mx-auto px-4 py-20">
       <h2 className="text-3xl font-bold mb-12 text-center text-gray-100">
-        Contact
+        Contact Me
       </h2>
 
       <div className="flex flex-col md:flex-row md:justify-between gap-12">

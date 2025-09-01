@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {Home} from "./pages/Home"
 import {NotFound} from "./pages/NotFound"
-import DemandPrediction from "./pages/DemandPrediction"
+import IndustrialPrediction from "./pages/IndustrialPrediction"
 
 function App() {
    return (
@@ -9,7 +9,7 @@ function App() {
         <Routes>
           <Route path = "/" element={<Home/>}/>
           <Route path = "*" element={<NotFound/>} />
-          <Route path="/project/:projectId" element={<DemandPrediction />} />
+          <Route path="/project/:projectId" element={<IndustrialPrediction />} />
         </Routes>
       </BrowserRouter>
   )
