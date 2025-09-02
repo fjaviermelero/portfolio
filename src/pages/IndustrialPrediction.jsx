@@ -1,59 +1,138 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import ZoomableImage from "../components/ZoomableImage";
+
+import trainTestSplit from "../assets/images/IndustrialPrediction/TrainTestSplit.png";
+import trendStationality from "../assets/images/IndustrialPrediction/TrendStationality.png";
+import modelComparison from "../assets/images/IndustrialPrediction/ModelComparison.png";
+import modelDeploy from "../assets/images/IndustrialPrediction/ModelDeploy.png";
+
+import sarima from "../assets/images/IndustrialPrediction/Sarima.png";
+import exponential from "../assets/images/IndustrialPrediction/ExponentialSmoothing.png";
+import prophet from "../assets/images/IndustrialPrediction/Prophet.png";
+import XGBoost from "../assets/images/IndustrialPrediction/XGBoost.png";
+
+
 
 export default function DemandPrediction() {
-  const { projectId } = useParams();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Navbar ocupa todo el ancho */}
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       <Navbar />
 
-      {/* Contenido principal centrado y con padding horizontal */}
-      <main className="pt-20 max-w-6xl mx-auto px-4 space-y-12">
-        {/* Título del proyecto */}
-        <section className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
-            Proyecto: {projectId}
+      <main className="pt-20 max-w-6xl mx-auto px-4 space-y-16">
+        {/* Título y descripción */}
+        <section className="text-center animate-fade-in">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
+            Industrial Workload Prediction
           </h1>
-          <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl">
-            Descripción breve del proyecto de predicción de demanda industrial.
-          </p>
-        </section>
-
-        {/* Descripción detallada */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Descripción del Proyecto</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Aquí puedes explicar el contexto del proyecto, objetivos, metodología, datasets usados, algoritmos aplicados, etc.
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
+            In this project, the workload of a real manufacturing plant has been measured, and the future workload for each line of the plant has been predicted using several models.
           </p>
         </section>
 
         {/* Gráficas y visualizaciones */}
-        <section className="space-y-8">
-          <h2 className="text-2xl font-semibold">Resultados y Gráficas</h2>
+        <section className="space-y-12 animate-fade-in">
+          <h2 className="text-2xl font-semibold text-blue-400 text-center">
+            Results and Visualizations
+          </h2>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-md">
-            <h3 className="text-lg font-medium mb-2">Predicción de demanda por mes</h3>
-            <div className="h-64 flex items-center justify-center text-gray-400">
-              Gráfico placeholder
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Train-Test Split Visualization
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={trainTestSplit}
+                alt=""
+              />
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-md">
-            <h3 className="text-lg font-medium mb-2">Comparativa real vs predicción</h3>
-            <div className="h-64 flex items-center justify-center text-gray-400">
-              Gráfico placeholder
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Trend, Stationality and Residuals study
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={trendStationality}
+                alt=""
+              />
             </div>
           </div>
-        </section>
 
-        {/* Análisis y conclusiones */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Análisis y Conclusiones</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Aquí puedes añadir tus conclusiones, aprendizajes, retos superados y próximos pasos.
-          </p>
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Model Comparison Results
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={modelComparison}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Model Deploy
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={modelDeploy}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Sarima Model Results
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={sarima}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Exponential Smoothing Model Results
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={exponential}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              Prophet Model Results
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={prophet}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              XGBoost Model Results
+            </h3>
+            <div className="h-64 flex items-center justify-center">
+              <ZoomableImage
+                src={XGBoost}
+                alt=""
+              />
+            </div>
+          </div>
+
         </section>
       </main>
     </div>
