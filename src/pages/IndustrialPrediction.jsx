@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ZoomableImage from "../components/ZoomableImage";
 
@@ -12,9 +13,10 @@ import exponential from "../assets/images/IndustrialPrediction/ExponentialSmooth
 import prophet from "../assets/images/IndustrialPrediction/Prophet.png";
 import XGBoost from "../assets/images/IndustrialPrediction/XGBoost.png";
 
-
-
 export default function DemandPrediction() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -41,7 +43,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Train-Test Split Visualization
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={trainTestSplit}
                 alt=""
@@ -53,7 +55,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Trend, Stationality and Residuals study
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={trendStationality}
                 alt=""
@@ -65,7 +67,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Model Comparison Results
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={modelComparison}
                 alt=""
@@ -77,7 +79,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Model Deploy
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={modelDeploy}
                 alt=""
@@ -89,7 +91,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Sarima Model Results
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={sarima}
                 alt=""
@@ -101,7 +103,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Exponential Smoothing Model Results
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={exponential}
                 alt=""
@@ -113,7 +115,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Prophet Model Results
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={prophet}
                 alt=""
@@ -125,7 +127,7 @@ export default function DemandPrediction() {
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               XGBoost Model Results
             </h3>
-            <div className="h-64 flex items-center justify-center">
+            <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage
                 src={XGBoost}
                 alt=""
