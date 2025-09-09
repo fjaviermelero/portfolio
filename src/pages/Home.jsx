@@ -17,9 +17,9 @@ export const Home = () => {
 
             <ExperienceSection />
 
-            <Technologies />
-
             <ProjectSection/>
+
+            <Technologies />
 
             <LanguagesSection/>
 

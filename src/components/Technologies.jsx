@@ -25,6 +25,8 @@ import {
   SiDocker,
   SiGit,
   SiExpress,
+  SiSelenium,
+  SiLinux,   // 🔹 Nuevo
 } from "react-icons/si";
 
 export default function Technologies() {
@@ -56,6 +58,8 @@ export default function Technologies() {
       { name: "Express", icon: <SiExpress className="text-gray-200" /> },
       { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
       { name: "Github & Gitlab", icon: <SiGit className="text-red-500" /> },
+      { name: "Selenium", icon: <SiSelenium className="text-green-400" /> },
+      { name: "Linux", icon: <SiLinux className="text-yellow-500" /> }, // ✅ Nuevo
     ],
   };
 

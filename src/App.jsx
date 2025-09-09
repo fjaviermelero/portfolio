@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {Home} from "./pages/Home"
 import {NotFound} from "./pages/NotFound"
 import IndustrialPrediction from "./pages/IndustrialPrediction"
+import ChatCoach from "./pages/ChatCoach"
 
 function App() {
    return (
@@ -9,7 +10,8 @@ function App() {
         <Routes>
           <Route path = "/" element={<Home/>}/>
           <Route path = "*" element={<NotFound/>} />
-          <Route path="/project/:projectId" element={<IndustrialPrediction />} />
+          <Route path="/project/IndustrialPrediction" element={<IndustrialPrediction />} />
+          <Route path="/project/ChatCoach" element={<ChatCoach />} />
         </Routes>
       </BrowserRouter>
   )

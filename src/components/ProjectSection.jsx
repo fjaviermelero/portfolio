@@ -5,7 +5,7 @@ import ChatCoachImage from "../assets/images/ChatCoach.jpg";
 export default function ProjectsSection() {
   const projects = [
     { title: "Industrial Workload Predictor", image: IndustrialPredictionImage, link: "/project/IndustrialPrediction" },
-    { title: "ChatCoach", image: ChatCoachImage, link: "/project/NotFound" },
+    { title: "ChatCoach", image: ChatCoachImage, link: "/project/ChatCoach" },
   ];
 
   // Determinar número de columnas dinámicamente según cantidad de proyectos

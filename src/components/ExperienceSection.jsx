@@ -5,9 +5,9 @@ export default function ExperienceSection() {
       company: "COFARES (Spain)",
       years: "2025 – Now",
       details: [
-        "Data ",
-        "Product Owner",
-        "Integración de Jenkins para despliegues continuos",
+        "Technologial updates implementation on automatic warehouse systems",
+        "Creation and maintenenca of data pipelines for industrial production",
+        "Project management for implementation of new features on a web application",
       ],
     },
     {
@@ -15,9 +15,9 @@ export default function ExperienceSection() {
       company: "STEELCASE (Spain)",
       years: "2022 – 2025",
       details: [
-        "Management of Industrial data acquisition Infrastructure",
-        "Process Improvement through production Data Analysys",
-        "Responsible for Cost Reduction initiatives in Madrid plant ",
+        "Management of Industrial data acquisition Infrastructure (Hardware & Software)",
+        "Industrial Process Improvement through Data Analysys and Visualization",
+        "Responsible for digital transformation projects implementation",
       ],
     },
     {
@@ -25,7 +25,7 @@ export default function ExperienceSection() {
       company: "ANTOLIN GROUP (UK + Germany)",
       years: " 2017 – 2022",
       details: [
-        "Project management for manufacturing process",
+        "Project management for manufacturing processes",
         "Serial production process improvement for Door panels",
         "Clients: Toyota, BMW, Volkswagen, Audi",
       ],
