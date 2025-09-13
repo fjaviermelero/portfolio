@@ -137,7 +137,7 @@ export default function Navbar() {
                 {/* ChatCoach sigue siendo ancla */}
                 <HashLink
                   smooth
-                  to="/#proyecto2"
+                  to="/project/ChatCoach"
                   className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
                   onClick={handleLinkClick}
                 >

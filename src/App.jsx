@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {Home} from "./pages/Home"
 import {NotFound} from "./pages/NotFound"
 import IndustrialPrediction from "./pages/IndustrialPrediction"
-import ChatCoach from "./pages/ChatCoach"
+import ChatCoachPage from "./pages/ChatCoachPage"
 
 function App() {
    return (
@@ -11,7 +11,7 @@ function App() {
           <Route path = "/" element={<Home/>}/>
           <Route path = "*" element={<NotFound/>} />
           <Route path="/project/IndustrialPrediction" element={<IndustrialPrediction />} />
-          <Route path="/project/ChatCoach" element={<ChatCoach />} />
+          <Route path="/project/ChatCoach" element={<ChatCoachPage />} />
         </Routes>
       </BrowserRouter>
   )
