@@ -5,11 +5,8 @@ export const NotFound = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-gray-100 px-4">
-      <h1 className="text-6xl md:text-8xl font-extrabold text-blue-500 animate-pulse mb-6">
-        404
-      </h1>
       <p className="text-xl md:text-2xl mb-4 text-center">
-        Ooops! This page is <span className="text-yellow-400 font-semibold">under construction</span>.
+        ChatCoach is currently <span className="text-yellow-400 font-semibold">Under Construction</span>.
       </p>
       <p className="text-center text-gray-400 mb-8">
         We're working hard to get it ready. Stay tuned!

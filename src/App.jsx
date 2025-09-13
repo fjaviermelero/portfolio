@@ -11,7 +11,7 @@ function App() {
           <Route path = "/" element={<Home/>}/>
           <Route path = "*" element={<NotFound/>} />
           <Route path="/project/IndustrialPrediction" element={<IndustrialPrediction />} />
-          <Route path="/project/ChatCoach" element={<ChatCoachPage />} />
+          <Route path="/project/ChatCoach" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
   )

@@ -5,9 +5,9 @@ export default function ExperienceSection() {
       company: "COFARES (Spain)",
       years: "2025 – Now",
       details: [
-        "Technologial updates implementation on automatic warehouse systems",
+        "Technological updates implementation on automatic warehouse systems",
         "Creation and maintenenca of data pipelines for industrial production",
-        "Project management for implementation of new features on a web application",
+        "Project management for implementation of new features on web applications",
       ],
     },
     {
@@ -25,8 +25,8 @@ export default function ExperienceSection() {
       company: "ANTOLIN GROUP (UK + Germany)",
       years: " 2017 – 2022",
       details: [
-        "Project management for manufacturing processes",
-        "Serial production process improvement for Door panels",
+        "Project management for implementation of new manufacturing processes",
+        "Serial production process improvement for cost reduction and quality increase",
         "Clients: Toyota, BMW, Volkswagen, Audi",
       ],
     },

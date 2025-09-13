@@ -38,7 +38,7 @@ export default function ContactSection() {
         </div>
 
         {/* Formulario */}
-        <form className="md:w-1/2 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-4">
+        {/* <form className="md:w-1/2 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-4">
           <div>
             <label className="block mb-1 text-gray-700 dark:text-gray-300">Name</label>
             <input
@@ -71,7 +71,7 @@ export default function ContactSection() {
           >
             Send
           </button>
-        </form>
+        </form> */}
       </div>
     </section>
   );
