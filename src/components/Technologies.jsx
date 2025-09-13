@@ -26,7 +26,8 @@ import {
   SiGit,
   SiExpress,
   SiSelenium,
-  SiLinux,   // 🔹 Nuevo
+  SiLinux,
+  SiMongodb,   // 🔹 Importar MongoDB
 } from "react-icons/si";
 
 export default function Technologies() {
@@ -38,6 +39,7 @@ export default function Technologies() {
       { name: "Scikit Learn", icon: <SiScikitlearn className="text-orange-400" /> },
       { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500" /> },
       { name: "SQL", icon: <FaDatabase className="text-gray-300" /> },
+      { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> }, // ✅ Añadido aquí
       { name: "Tableau", icon: <SiTableau className="text-blue-500" /> },
       { name: "Power BI", icon: <FaChartPie className="text-yellow-500" /> },
       { name: "Looker", icon: <FaEye className="text-pink-400" /> },
@@ -59,7 +61,7 @@ export default function Technologies() {
       { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
       { name: "Github & Gitlab", icon: <SiGit className="text-red-500" /> },
       { name: "Selenium", icon: <SiSelenium className="text-green-400" /> },
-      { name: "Linux", icon: <SiLinux className="text-yellow-500" /> }, // ✅ Nuevo
+      { name: "Linux", icon: <SiLinux className="text-yellow-500" /> },
     ],
   };
 

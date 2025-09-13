@@ -72,8 +72,8 @@ function ChatWindow() {
       <div className="flex-1 flex flex-col p-6">
         {/* Chat box */}
         <div
-          ref={chatBoxRef}
-          className="flex-1 border border-gray-700 rounded-lg p-4 bg-gray-800 mb-3 overflow-y-auto shadow-inner"
+        ref={chatBoxRef}
+        className="border border-gray-700 rounded-lg p-4 bg-gray-800 mb-3 overflow-y-auto shadow-inner max-h-[400px] sm:max-h-[500px]"
         >
           {messages.length === 0 && (
             <p className="text-gray-500 italic">No hay mensajes aún...</p>
