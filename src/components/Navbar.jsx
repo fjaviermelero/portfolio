@@ -13,27 +13,28 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-600 text-white sticky top-0 z-50 w-full shadow-md">
+    <nav className="bg-gray-800 text-white sticky top-0 z-50 w-full shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
-          
-          <div className="h-12 flex items-center justify-center bg-white rounded-full px-4 shadow-md">
+          {/* Branding tipo footer */}
+          <div className="flex flex-col items-center md:items-start justify-center px-4 py-2">
             <span
-              className="text-blue-700 font-bold text-base tracking-tight"
+              className="text-indigo-400 font-bold text-base tracking-tight"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               Francisco Melero
             </span>
+            <span className="text-gray-400 text-xs md:text-sm">
+              Industry 4.0 Data Expert
+            </span>
           </div>
-
 
           {/* Menú escritorio */}
           <div className="hidden md:flex items-center space-x-6">
             <HashLink
               smooth
               to="/#home"
-              className="hover:text-gray-200 transition-colors"
+              className="hover:text-indigo-300 transition-colors"
               onClick={handleLinkClick}
             >
               Home
@@ -41,7 +42,7 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#experience"
-              className="hover:text-gray-200 transition-colors"
+              className="hover:text-indigo-300 transition-colors"
               onClick={handleLinkClick}
             >
               Experience
@@ -51,25 +52,23 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setIsProjectsOpen(!isProjectsOpen)}
-                className="flex items-center gap-1 hover:text-gray-200 transition-colors"
+                className="flex items-center gap-1 hover:text-indigo-300 transition-colors"
               >
                 Projects <ChevronDown className="w-4 h-4" />
               </button>
               {isProjectsOpen && (
-                <div className="absolute mt-2 bg-blue-700 rounded-md shadow-lg min-w-max py-2">
-                  {/* Link a página del proyecto */}
+                <div className="absolute mt-2 bg-gray-900 rounded-md shadow-lg min-w-max py-2">
                   <Link
                     to="/project/IndustrialPrediction"
-                    className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                    className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                     onClick={handleLinkClick}
                   >
                     Industrial Workload Predictor
                   </Link>
-                  {/* ChatCoach sigue siendo ancla */}
                   <HashLink
                     smooth
                     to="/project/ChatCoach"
-                    className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                    className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                     onClick={handleLinkClick}
                   >
                     ChatCoach
@@ -82,7 +81,7 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#contact"
-              className="hover:text-gray-200 transition-colors"
+              className="hover:text-indigo-300 transition-colors"
               onClick={handleLinkClick}
             >
               Contact
@@ -100,11 +99,11 @@ export default function Navbar() {
 
       {/* Menú móvil */}
       {isOpen && (
-        <div className="md:hidden bg-blue-700">
+        <div className="md:hidden bg-gray-900">
           <HashLink
             smooth
             to="/#home"
-            className="block px-4 py-2 hover:bg-blue-500"
+            className="block px-4 py-2 hover:bg-gray-700"
             onClick={handleLinkClick}
           >
             Home
@@ -112,7 +111,7 @@ export default function Navbar() {
           <HashLink
             smooth
             to="/#experience"
-            className="block px-4 py-2 hover:bg-blue-500"
+            className="block px-4 py-2 hover:bg-gray-700"
             onClick={handleLinkClick}
           >
             Experience
@@ -122,7 +121,7 @@ export default function Navbar() {
           <div>
             <button
               onClick={() => setIsProjectsOpen(!isProjectsOpen)}
-              className="w-full text-left px-4 py-2 flex items-center justify-between hover:bg-blue-500"
+              className="w-full text-left px-4 py-2 flex items-center justify-between hover:bg-gray-700"
             >
               Projects{" "}
               <ChevronDown
@@ -132,20 +131,18 @@ export default function Navbar() {
               />
             </button>
             {isProjectsOpen && (
-              <div className="bg-blue-600">
-                {/* Link a página del proyecto */}
+              <div className="bg-gray-800">
                 <Link
                   to="/project/IndustrialPrediction"
-                  className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                  className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                   onClick={handleLinkClick}
                 >
                   Industrial Workload Predictor
                 </Link>
-                {/* ChatCoach sigue siendo ancla */}
                 <HashLink
                   smooth
                   to="/project/ChatCoach"
-                  className="block px-6 py-2 hover:bg-blue-500 whitespace-nowrap"
+                  className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                   onClick={handleLinkClick}
                 >
                   ChatCoach
@@ -158,7 +155,7 @@ export default function Navbar() {
           <HashLink
             smooth
             to="/#contact"
-            className="block px-4 py-2 hover:bg-blue-500"
+            className="block px-4 py-2 hover:bg-gray-700"
             onClick={handleLinkClick}
           >
             Contact
