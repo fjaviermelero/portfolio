@@ -15,14 +15,13 @@ export default function ContactSection() {
     };
 
     try {
-        const response = await fetch("https://tunnel.fjmelero.com/send-message", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
-
+      const response = await fetch("https://tunnel.fjmelero.com/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
 
       if (response.ok) {
         setStatus("Message sent successfully!");
@@ -75,39 +74,39 @@ export default function ContactSection() {
         {/* Formulario */}
         <form
           onSubmit={handleSubmit}
-          className="md:w-1/2 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-4"
+          className="md:w-1/2 bg-gray-800 dark:bg-gray-900 text-gray-100 p-8 rounded-2xl shadow-lg space-y-4"
         >
           <div>
-            <label className="block mb-1 text-gray-700 dark:text-gray-300">Name</label>
+            <label className="block mb-1 text-gray-100">Name</label>
             <input
               type="text"
               placeholder="Your Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full p-3 rounded-md border border-gray-700 bg-gray-700 dark:bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
             />
           </div>
 
           <div>
-            <label className="block mb-1 text-gray-700 dark:text-gray-300">Email</label>
+            <label className="block mb-1 text-gray-100">Email</label>
             <input
               type="email"
               placeholder="Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full p-3 rounded-md border border-gray-700 bg-gray-700 dark:bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
             />
           </div>
 
           <div>
-            <label className="block mb-1 text-gray-700 dark:text-gray-300">Message</label>
+            <label className="block mb-1 text-gray-100">Message</label>
             <textarea
               placeholder="Your Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 h-32"
+              className="w-full p-3 rounded-md border border-gray-700 bg-gray-700 dark:bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600 h-32"
               required
             />
           </div>
@@ -119,7 +118,7 @@ export default function ContactSection() {
             Send
           </button>
 
-          {status && <p className="mt-2 text-gray-700 dark:text-gray-300">{status}</p>}
+          {status && <p className="mt-2 text-gray-100">{status}</p>}
         </form>
       </div>
     </section>
