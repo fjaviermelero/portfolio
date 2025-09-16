@@ -1,6 +1,42 @@
-import { Linkedin, Github, Mail } from "lucide-react";
+import { useState } from "react";
+import { Linkedin, Github } from "lucide-react";
 
 export default function ContactSection() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      message: `Name: ${name}, Email: ${email}, Message: ${message}`
+    };
+
+    try {
+        const response = await fetch("http://tunnel.fjmelero.com/send-message", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Failed to send message.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("An error occurred.");
+    }
+  };
 
   return (
     <section id="contact" className="container mx-auto px-4 py-20">
@@ -33,18 +69,23 @@ export default function ContactSection() {
               <Github className="w-5 h-5" />
               <span>GitHub</span>
             </a>
-
           </div>
         </div>
 
         {/* Formulario */}
-        {/* <form className="md:w-1/2 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="md:w-1/2 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-4"
+        >
           <div>
             <label className="block mb-1 text-gray-700 dark:text-gray-300">Name</label>
             <input
               type="text"
               placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
             />
           </div>
 
@@ -53,7 +94,10 @@ export default function ContactSection() {
             <input
               type="email"
               placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
             />
           </div>
 
@@ -61,7 +105,10 @@ export default function ContactSection() {
             <label className="block mb-1 text-gray-700 dark:text-gray-300">Message</label>
             <textarea
               placeholder="Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 h-32"
+              required
             />
           </div>
 
@@ -71,7 +118,9 @@ export default function ContactSection() {
           >
             Send
           </button>
-        </form> */}
+
+          {status && <p className="mt-2 text-gray-700 dark:text-gray-300">{status}</p>}
+        </form>
       </div>
     </section>
   );
