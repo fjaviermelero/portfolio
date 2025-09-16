@@ -15,7 +15,7 @@ export default function ContactSection() {
     };
 
     try {
-        const response = await fetch("http://tunnel.fjmelero.com/send-message", {
+        const response = await fetch("https://tunnel.fjmelero.com/send-message", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
