@@ -5,8 +5,8 @@ export default function ExperienceSection() {
       company: "COFARES (Spain)",
       years: "2025 – Now",
       details: [
-        "Technological updates implementation on automatic warehouse systems",
-        "Creation and maintenenca of data pipelines for industrial production",
+        "Implementation of technological updates in automatic warehouse systems",
+        "Creation and maintenence of data pipelines for industrial production",
         "Project management for implementation of new features on web applications",
       ],
     },
@@ -16,7 +16,7 @@ export default function ExperienceSection() {
       years: "2022 – 2025",
       details: [
         "Management of Industrial data acquisition Infrastructure (Hardware & Software)",
-        "Industrial Process Improvement through Data Analysys and Visualization",
+        "Industrial Process Improvement through Data Analysis and Visualization",
         "Responsible for digital transformation projects implementation",
       ],
     },

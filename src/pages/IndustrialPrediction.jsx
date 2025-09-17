@@ -29,7 +29,7 @@ export default function IndustrialPrediction() {
             Industrial Workload Prediction
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            In this project, the workload of a manufacturing plant has been measured using data from real time prodicton sources. <br />
+            In this project, the workload of a manufacturing plant has been measured using data from real-time production systems. <br />
           </p>
 
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
@@ -40,7 +40,7 @@ export default function IndustrialPrediction() {
 
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
             <br />
-            Finally, the model has been deployed to generate real-time predictions for the manufacturing plant, using a visualization interface progrrammed with Streamlit
+            Finally, the model has been deployed to generate real-time predictions for the manufacturing plant, using a visualization interface programmed with Streamlit
           </p>
         </section>
 

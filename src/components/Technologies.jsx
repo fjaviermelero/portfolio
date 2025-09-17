@@ -46,7 +46,7 @@ export default function Technologies() {
     ],
     "Industrial Engineering": [
       { name: "IIOT and Sensors", icon: <FaIndustry className="text-orange-400" /> },
-      { name: "PLC / Automatization", icon: <FaCogs className="text-green-400" /> },
+      { name: "PLC / Automation", icon: <FaCogs className="text-green-400" /> },
       { name: "Lean Manufacturing", icon: <FaLeanpub className="text-purple-400" /> },
       { name: "Six Sigma", icon: <FaTable className="text-green-500" /> },
       { name: "Project Management", icon: <FaProjectDiagram className="text-pink-400" /> },
