@@ -6,7 +6,7 @@ export default function ExperienceSection() {
       years: "2025 – Now",
       details: [
         "Implementation of technological updates in automatic warehouse systems",
-        "Creation and maintenence of data pipelines for industrial production",
+        "Maintenence of data pipelines for industrial production",
         "Project management for implementation of new features on web applications",
       ],
     },
