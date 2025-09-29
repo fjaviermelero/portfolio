@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export const ChatCoachLogin = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const hardcodeHash =
@@ -29,10 +30,11 @@ export const ChatCoachLogin = () => {
     if (passwordHash === hardcodeHash) {
 
       console.log("Login successful");
-      navigate(`project/ChatCoachSelect/${user}`)
+      navigate(`/project/ChatCoachSelect/${user}`)
 
     } else {
       console.log("Login failed");
+      setError("Invalid username or password");
     }
   };
 
@@ -75,6 +77,10 @@ export const ChatCoachLogin = () => {
               required
             />
           </div>
+
+          {error && (
+            <p className="text-red-500 text-center mb-4">{error}</p>
+          )}
 
           <div className="flex items-center justify-center">
             <button
