@@ -6,10 +6,10 @@ import { Link, useParams } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 
 const languages = [
-  { code: "GB", label: "English" },
-  { code: "ES", label: "Spanish" },
-  { code: "DE", label: "German" },
-  { code: "FR", label: "French" },
+  { code: "GB", label: "english" },
+  { code: "ES", label: "spanish" },
+  { code: "DE", label: "german" },
+  { code: "FR", label: "french" },
 ];
 
 export const ChatCoachSelect = () => {
@@ -23,7 +23,7 @@ export const ChatCoachSelect = () => {
       .catch((err) => console.error("Error fetching conversations:", err));
   }, [user]);
 
- return (
+  return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100">
       <Navbar />
 
@@ -35,10 +35,8 @@ export const ChatCoachSelect = () => {
 
         {/* Contenedor responsive: Corrections izquierda, Conversations derecha */}
         <div className="flex flex-col lg:flex-row lg:space-x-8 w-full max-w-5xl">
-
           {/* Conversations */}
           <div className="bg-gray-800 rounded-xl shadow-lg p-6 w-full lg:w-1/2">
-            
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-center lg:text-left">
                 Conversations
@@ -47,9 +45,8 @@ export const ChatCoachSelect = () => {
                 New Conversation
               </button>
             </div>
-                        
-            <ul className="space-y-3">
 
+            <ul className="space-y-3">
               {conversations.map((conv, index) => (
                 <li
                   key={index}
@@ -66,16 +63,21 @@ export const ChatCoachSelect = () => {
             </ul>
           </div>
 
-          <br/>
+          <br />
 
           {/* Corrections */}
           <div className="bg-gray-800 rounded-xl shadow-lg p-6 w-full lg:w-1/2 mb-6 lg:mb-0">
-            <h2 className="text-xl font-semibold mb-4 text-center">Corrections</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center">
+              Corrections
+            </h2>
             <div className="grid grid-cols-2 gap-4 text-center">
               {languages.map((lang) => (
-                <button
+                <Link
                   key={lang.code}
-                  className="flex flex-col items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-lg p-4 transition duration-200"
+                  to={`/project/ChatCoachCorrections/${user}/${lang.label}`}
+                  className="flex flex-col items-center justify-center 
+                 bg-gray-700 hover:bg-gray-600 rounded-lg p-4 
+                 transition duration-200 w-full h-full"
                 >
                   <ReactCountryFlag
                     countryCode={lang.code}
@@ -84,11 +86,10 @@ export const ChatCoachSelect = () => {
                     title={lang.label}
                   />
                   <span className="mt-2 font-medium">{lang.label}</span>
-                </button>
+                </Link>
               ))}
             </div>
           </div>
-
         </div>
       </div>
 
