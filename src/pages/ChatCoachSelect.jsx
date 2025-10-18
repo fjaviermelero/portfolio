@@ -53,7 +53,7 @@ export const ChatCoachSelect = () => {
                   className="bg-gray-700 hover:bg-gray-600 rounded-md p-3 transition duration-200"
                 >
                   <Link
-                    to={`/project/ChatCoach/${user}/${conv.conversation_title}`}
+                    to={`/project/ChatCoachPage/${user}/${conv.conversation_title}`}
                     className="text-blue-400 hover:underline"
                   >
                     <strong>{conv.conversation_title}</strong>

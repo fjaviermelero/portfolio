@@ -67,7 +67,7 @@ export default function Navbar() {
                   </Link>
                   <HashLink
                     smooth
-                    to="/project/ChatCoach"
+                    to="/project/ChatCoachLogin"
                     className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                     onClick={handleLinkClick}
                   >
@@ -141,7 +141,7 @@ export default function Navbar() {
                 </Link>
                 <HashLink
                   smooth
-                  to="/project/ChatCoach"
+                  to="/project/ChatCoachLogin"
                   className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
                   onClick={handleLinkClick}
                 >
