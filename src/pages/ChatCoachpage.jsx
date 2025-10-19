@@ -6,9 +6,10 @@ import { Link, useParams } from "react-router-dom";
 
 export default function ChatCoachPage() {
   const [messages, setMessages] = useState([]);
-  const [corrections, setCorrections] = useState([]);
+  const [corrections, setCorrections] = useState({});
   const [input, setInput] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
+  const [selectLang, setSelectLang] = useState("spanish");
 
   const messagesEndRef = useRef(null);
   const { user, conversation } = useParams();
@@ -18,26 +19,13 @@ export default function ChatCoachPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Fetch corrections
-  useEffect(() => {
-    fetch(`http://localhost:8000/corrections/${user}/spanish`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.corrections);
-        setCorrections(data.corrections || []);
-      })
-      .catch((err) => console.error("Error fetching corrections:", err));
-  }, [user]);
-
   const handleSend = async () => {
     if (!input.trim()) return;
 
     const newMessage = {
       user: user,
       message: input,
-      language: "spanish",
+      language: selectLang,
       conversation_title: conversation,
     };
 
@@ -63,6 +51,10 @@ export default function ChatCoachPage() {
         ...prev,
         { user: "chatbot", message: response.model_answer },
       ]);
+
+      console.log(response);
+
+      setCorrections((prev) => ({ ...prev, ...response.correction }));
     } catch (error) {
       console.error("Error:", error);
     }
@@ -86,40 +78,41 @@ export default function ChatCoachPage() {
 
       <div className="flex flex-1 w-full">
         {/* Sidebar (correcciones) */}
-     <aside
-  className={`fixed md:static top-0 left-0 h-full md:h-auto w-80 bg-[#2d2f3a] border-r border-indigo-800/40 p-5 overflow-y-auto z-40 transform transition-transform duration-300 ease-in-out shadow-xl ${
-    showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-  }`}
->
-  <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-lg px-4 py-3 rounded-md shadow-md mb-4">
-    🧠 Correcciones
-  </div>
-
-  {Object.keys(corrections).length > 0 ? (
-    <ul className="space-y-3">
-      {Object.entries(corrections).map(([original, corrected], i) => (
-        <li
-          key={i}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700/50 rounded-lg p-3 transition duration-200 shadow-sm"
+        <aside
+          className={`fixed md:static top-0 left-0 h-full md:h-auto w-80 bg-[#2d2f3a] border-r border-indigo-800/40 p-5 overflow-y-auto z-40 transform transition-transform duration-300 ease-in-out shadow-xl ${
+            showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+          }`}
         >
-          <p className="text-sm text-gray-300 mb-1">
-            <span className="font-medium text-indigo-400">Original:</span>{" "}
-            <span className="text-red-400 italic">{original}</span>
-          </p>
-          <p className="text-sm text-green-400">
-            <span className="font-medium">Corrección:</span>{" "}
-            <span className="italic">{corrected}</span>
-          </p>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <div className="text-gray-400 text-sm italic bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-      No hay correcciones aún.
-    </div>
-  )}
-</aside>
+          <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-lg px-4 py-3 rounded-md shadow-md mb-4">
+            🧠 Correcciones
+          </div>
 
+          {Object.keys(corrections).length > 0 ? (
+            <ul className="space-y-3">
+              {Object.entries(corrections).map(([original, corrected], i) => (
+                <li
+                  key={i}
+                  className="bg-gray-800 hover:bg-gray-700 border border-gray-700/50 rounded-lg p-3 transition duration-200 shadow-sm"
+                >
+                  <p className="text-sm text-gray-300 mb-1">
+                    <span className="font-medium text-indigo-400">
+                      Original:
+                    </span>{" "}
+                    <span className="text-red-400 italic">{original}</span>
+                  </p>
+                  <p className="text-sm text-green-400">
+                    <span className="font-medium">Corrección:</span>{" "}
+                    <span className="italic">{corrected}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="text-gray-400 text-sm italic bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              No hay correcciones aún.
+            </div>
+          )}
+        </aside>
 
         {/* Contenido principal del chat */}
         <div className="flex-1 flex flex-col items-center justify-center p-6">
@@ -172,18 +165,30 @@ export default function ChatCoachPage() {
             </div>
 
             {/* Campo de entrada */}
-            <div className="border-t border-gray-700 p-4 bg-gray-800 flex items-center">
+            <div className="border-t border-gray-700 p-4 bg-gray-800 flex flex-col sm:flex-row sm:items-center gap-3">
+              <select
+                value={selectLang}
+                onChange={(e) => setSelectLang(e.target.value)}
+                className="bg-gray-700 text-gray-100 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition w-full sm:w-auto"
+              >
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="german">German</option>
+                <option value="french">French</option>
+              </select>
+
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Escribe tu mensaje..."
-                className="flex-1 bg-gray-700 text-gray-100 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                className="bg-gray-700 text-gray-100 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition flex-1 w-full"
               />
+
               <button
                 onClick={handleSend}
-                className="ml-3 px-5 py-3 bg-indigo-600 rounded-xl font-semibold hover:bg-indigo-500 transition"
+                className="px-5 py-3 bg-indigo-600 rounded-xl font-semibold hover:bg-indigo-500 transition w-full sm:w-auto"
               >
                 Enviar
               </button>
