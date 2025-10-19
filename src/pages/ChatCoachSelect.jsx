@@ -22,7 +22,7 @@ export const ChatCoachSelect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/conversations/${user}`, { method: "GET" })
+    fetch(`https://chatcoachbackend.fjmelero.com/conversations/${user}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => setConversations(data.conversations))
       .catch((err) => console.error("Error fetching conversations:", err));

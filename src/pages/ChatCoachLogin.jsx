@@ -11,8 +11,7 @@ export const ChatCoachLogin = () => {
   const navigate = useNavigate();
 
   const hardcodeHash =
-    "d0cc4101c015609d3e6e9bff2cfcf643ec4b05330949c658472516e2220afae1"; 
-    
+    "912021f888a598607098250846def9af0a6a44a83ee26fe5ee655f386e66cdb0"; 
   async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);

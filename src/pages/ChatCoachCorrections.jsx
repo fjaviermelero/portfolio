@@ -17,7 +17,7 @@ export const ChatCoachCorrections = () => {
   const { user, language } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/corrections/${user}/${language}`, {
+    fetch(`https://chatcoachbackend.fjmelero.com/corrections/${user}/${language}`, {
       method: "GET",
     })
       .then((res) => res.json())

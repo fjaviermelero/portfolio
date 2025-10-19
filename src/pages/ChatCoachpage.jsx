@@ -33,7 +33,7 @@ export default function ChatCoachPage() {
     setInput("");
 
     try {
-      const answer = await fetch("http://localhost:8000/chat", {
+      const answer = await fetch("https://chatcoachbackend.fjmelero.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export default function ChatCoachPage() {
           }`}
         >
           <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-lg px-4 py-3 rounded-md shadow-md mb-4">
-            🧠 Correcciones
+            🧠 Corrections
           </div>
 
           {Object.keys(corrections).length > 0 ? (
