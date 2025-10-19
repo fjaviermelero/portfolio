@@ -14,7 +14,7 @@ export default function ChatCoachPage() {
   const messagesEndRef = useRef(null);
   const { user, conversation } = useParams();
 
-  // Scroll to the last message
+  // Scroll to the last messageend when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
