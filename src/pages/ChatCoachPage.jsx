@@ -12,12 +12,22 @@ export default function ChatCoachPage() {
   const [selectLang, setSelectLang] = useState("spanish");
 
   const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null); // Contenedor de mensajes
+  const correctionsEndRef = useRef(null); // Contenedor de correcciones
+
   const { user, conversation } = useParams();
 
-  // Scroll to the last messageend when messages change
+  // Scroll automático en mensajes
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = messagesContainerRef.current;
+    if (container) container.scrollTop = container.scrollHeight;
   }, [messages]);
+
+  // Scroll automático en correcciones
+  useEffect(() => {
+    const container = correctionsEndRef.current;
+    if (container) container.scrollTop = container.scrollHeight;
+  }, [corrections]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -35,9 +45,7 @@ export default function ChatCoachPage() {
     try {
       const answer = await fetch("https://chatcoachbackend.fjmelero.com/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMessage),
       });
 
@@ -45,14 +53,11 @@ export default function ChatCoachPage() {
 
       const response = await answer.json();
       console.log("Respuesta del backend:", response);
-      console.log("Correcciones:", corrections);
 
       setMessages((prev) => [
         ...prev,
         { user: "chatbot", message: response.model_answer },
       ]);
-
-      console.log(response);
 
       setCorrections((prev) => ({ ...prev, ...response.correction }));
     } catch (error) {
@@ -68,87 +73,84 @@ export default function ChatCoachPage() {
     <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100 relative">
       <Navbar />
 
-      {/* Botón móvil para abrir/cerrar sidebar */}
-      <button
-        onClick={() => setShowSidebar(!showSidebar)}
-        className="md:hidden bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg absolute top-20 left-4 z-50 shadow-lg transition"
-      >
-        {showSidebar ? "Cerrar" : "Correcciones"}
-      </button>
-
-      <div className="flex flex-1 w-full">
+      <div className="flex flex-1 w-full overflow-hidden">
         {/* Sidebar (correcciones) */}
         <aside
-          className={`fixed md:static top-0 left-0 h-full md:h-auto w-80 bg-[#2d2f3a] border-r border-indigo-800/40 p-5 overflow-y-auto z-40 transform transition-transform duration-300 ease-in-out shadow-xl ${
-            showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-          }`}
+          className={`fixed top-[80px] left-0 h-[calc(100%-80px)] w-72 sm:w-80 bg-[#2d2f3a] border-r border-indigo-800/40 p-5 overflow-hidden z-30 transform transition-transform duration-300 ease-in-out shadow-xl
+            ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
         >
-          <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-lg px-4 py-3 rounded-md shadow-md mb-4">
+          <div className="sticky top-0 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-lg px-4 py-3 rounded-md shadow-md mb-4 flex justify-between items-center z-10">
             🧠 Corrections
+            <button
+              onClick={() => setShowSidebar(false)}
+              className="bg-gray-800 hover:bg-gray-700 text-sm px-3 py-1 rounded-md border border-gray-600"
+            >
+              {showSidebar ? "Close" : "Open"}
+            </button>
           </div>
 
-          {Object.keys(corrections).length > 0 ? (
-            <ul className="space-y-3">
-              {Object.entries(corrections).map(([original, corrected], i) => (
-                <li
-                  key={i}
-                  className="bg-gray-800 hover:bg-gray-700 border border-gray-700/50 rounded-lg p-3 transition duration-200 shadow-sm"
-                >
-                  <p className="text-sm text-gray-300 mb-1">
-                    <span className="font-medium text-indigo-400">
-                      Original:
-                    </span>{" "}
-                    <span className="text-red-400 italic">{original}</span>
-                  </p>
-                  <p className="text-sm text-green-400">
-                    <span className="font-medium">Corrección:</span>{" "}
-                    <span className="italic">{corrected}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="text-gray-400 text-sm italic bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-              No hay correcciones aún.
-            </div>
-          )}
+          {/* Contenedor scroll de correcciones */}
+          <div
+            ref={correctionsEndRef}
+            className="overflow-y-auto max-h-[calc(100%-80px)]"
+          >
+            {Object.keys(corrections).length > 0 ? (
+              <ul className="space-y-3">
+                {Object.entries(corrections).map(([original, corrected], i) => (
+                  <li
+                    key={i}
+                    className="bg-gray-800 hover:bg-gray-700 border border-gray-700/50 rounded-lg p-3 transition duration-200 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-300 mb-1">
+                      <span className="font-medium text-indigo-400">Original:</span>{" "}
+                      <span className="text-red-400 italic">{original}</span>
+                    </p>
+                    <p className="text-sm text-green-400">
+                      <span className="font-medium">Corrección:</span>{" "}
+                      <span className="italic">{corrected}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="text-gray-400 text-sm italic bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                No hay correcciones aún.
+              </div>
+            )}
+          </div>
         </aside>
 
-        {/* Contenido principal del chat */}
-        <div className="flex-1 flex flex-col items-center justify-center p-6">
-          <div className="w-full max-w-3xl bg-gray-800 rounded-2xl shadow-xl flex flex-col overflow-hidden">
+        {/* Ventana del chat */}
+        <div className="flex-1 flex flex-col items-center justify-center p-6 overflow-hidden">
+          <div className="w-full max-w-3xl bg-gray-800 rounded-2xl shadow-xl flex flex-col overflow-hidden h-[80vh]">
             {/* Título */}
-            <div className="flex items-center justify-between bg-indigo-600 text-white px-6 py-4 shadow-md">
-              {/* Botón volver */}
+            <div className="flex flex-wrap items-center justify-between bg-indigo-600 text-white px-4 py-3 shadow-md gap-2">
               <Link
                 to={`/project/ChatCoachSelect/${user}`}
-                className="flex items-center gap-2 px-4 py-2 bg-indigo-700 hover:bg-indigo-500 rounded-lg transition-all duration-300 text-sm font-medium shadow-md"
+                className="flex-shrink-0 flex items-center gap-2 px-3 py-2 bg-indigo-700 hover:bg-indigo-500 rounded-lg transition-all duration-300 text-sm font-medium shadow-md min-w-fit"
               >
                 <span className="text-lg">←</span>
-                <span>Volver</span>
+                <span>Back</span>
               </Link>
 
-              {/* Título centrado */}
-              <div className="flex-1 text-center">
-                <h2 className="text-2xl font-bold tracking-wide">
-                  {user}
-                  <span className="text-indigo-200 font-light mx-2">•</span>
+              <div className="flex-1 text-center min-w-0">
+                <h2 className="text-lg sm:text-xl font-bold tracking-wide truncate">
                   {conversation}
                 </h2>
               </div>
 
-              {/* Espaciador */}
-              <div className="w-[120px]" />
+              <div className="w-[70px] sm:w-[120px]" />
             </div>
 
             {/* Área de mensajes */}
-            <div className="flex-1 p-6 overflow-y-auto space-y-4">
+            <div
+              ref={messagesContainerRef}
+              className="flex-1 p-6 overflow-y-auto space-y-4 bg-gray-800"
+            >
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`flex ${
-                    msg.user === "chatbot" ? "justify-start" : "justify-end"
-                  }`}
+                  className={`flex ${msg.user === "chatbot" ? "justify-start" : "justify-end"}`}
                 >
                   <div
                     className={`px-4 py-2 rounded-2xl max-w-[75%] text-sm md:text-base transition-all duration-300 ${
@@ -182,16 +184,27 @@ export default function ChatCoachPage() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Escribe tu mensaje..."
+                placeholder="Write your message..."
                 className="bg-gray-700 text-gray-100 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition flex-1 w-full"
               />
 
-              <button
-                onClick={handleSend}
-                className="px-5 py-3 bg-indigo-600 rounded-xl font-semibold hover:bg-indigo-500 transition w-full sm:w-auto"
-              >
-                Enviar
-              </button>
+              <div className="flex justify-between w-full sm:w-auto gap-2">
+                {/* Botón de Correcciones */}
+                <button
+                  onClick={() => setShowSidebar(!showSidebar)}
+                  className="px-5 py-3 bg-gray-700 rounded-xl font-semibold hover:bg-gray-600 transition w-full sm:w-auto"
+                >
+                  {showSidebar ? "Close" : "Corrections"}
+                </button>
+
+                {/* Botón de Enviar */}
+                <button
+                  onClick={handleSend}
+                  className="px-5 py-3 bg-indigo-600 rounded-xl font-semibold hover:bg-indigo-500 transition w-full sm:w-auto"
+                >
+                  Send
+                </button>
+              </div>
             </div>
           </div>
         </div>
