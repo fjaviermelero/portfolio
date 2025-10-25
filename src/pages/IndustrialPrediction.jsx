@@ -23,28 +23,46 @@ export default function IndustrialPrediction() {
       <Navbar />
 
       <main className="pt-20 max-w-6xl mx-auto px-4 space-y-16">
-        {/* Título y descripción */}
+         {/* Título y descripción */}
         <section className="text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
             Industrial Workload Prediction
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            In this project, the workload of a manufacturing plant has been measured using data from real-time production systems. <br />
+            In this project, the workload of a manufacturing plant has been
+            measured using data from real-time production systems. <br />
           </p>
 
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
             <br />
-            The future workload for each manufacturing line of the plant has been predicted 16 weeks in advance using several models, reaching an overall accuracy of around 80% (20% Mean Absolute Percentage Error)
+            The future workload for each manufacturing line of the plant has
+            been predicted 16 weeks in advance using several models, reaching an
+            overall accuracy of around 80% (20% Mean Absolute Percentage Error)
           </p>
-
 
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
             <br />
-            Finally, the model has been deployed to generate real-time predictions for the manufacturing plant, using a visualization interface programmed with Streamlit
+            Finally, the model has been deployed to generate real-time
+            predictions for the manufacturing plant, using a visualization
+            interface programmed with Streamlit
           </p>
+
+          <br />
+          {/* Icono de descarga */}
+          <a
+            href="/Industrial_Workload_Prediction.pdf"
+            download="Industrial_Workload_Prediction.pdf"
+            className="inline-flex items-center justify-center px-5 py-2 bg-gray-700 text-white font-semibold rounded-xl shadow-md hover:bg-blue-600 transition-colors duration-300 space-x-2"
+            title="Download full project documentation (PDF)"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+              alt="PDF Icon"
+              className="w-6 h-6"
+            />
+            <span>Download Project Documentation (Spanish) </span>
+          </a>
         </section>
-
-
 
         {/* GitHub Project */}
         <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 text-center">
@@ -52,7 +70,8 @@ export default function IndustrialPrediction() {
             GitHub Repository
           </h3>
           <p className="text-gray-300 mb-4">
-            You can find the full code and implementation details of this project on GitHub.
+            You can find the full code and implementation details of this
+            project on GitHub.
           </p>
           <a
             href="https://github.com/fjaviermelero/TimeSeriesPrediction"
@@ -76,13 +95,10 @@ export default function IndustrialPrediction() {
           </a>
         </div>
 
-
-
-
         {/* Gráficas y visualizaciones */}
         <section className="space-y-12 animate-fade-in">
           <h2 className="text-2xl font-semibold text-blue-400 text-center">
-            Results and Visualizations
+            Results and Visualizations (Summary)
           </h2>
 
           {/* Train-Test Split */}
@@ -94,7 +110,11 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={trainTestSplit} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              To evaluate the predictive performance of our models, the dataset was split into training and testing sets. The training set was used to fit the models, while the testing set served to validate the accuracy and robustness of predictions. This ensures that the models generalize well to unseen data.
+              To evaluate the predictive performance of our models, the dataset
+              was split into training and testing sets. The training set was
+              used to fit the models, while the testing set served to validate
+              the accuracy and robustness of predictions. This ensures that the
+              models generalize well to unseen data.
             </p>
           </div>
 
@@ -107,7 +127,11 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={trendStationality} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              Before training the models, we analyzed the data for trends, seasonality, and stationarity. Residuals were examined to ensure that models capture the main patterns without leaving systematic errors. This step is crucial for time series forecasting models like SARIMA and Prophet.
+              Before training the models, we analyzed the data for trends,
+              seasonality, and stationarity. Residuals were examined to ensure
+              that models capture the main patterns without leaving systematic
+              errors. This step is crucial for time series forecasting models
+              like SARIMA and Prophet.
             </p>
           </div>
 
@@ -120,7 +144,11 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={modelComparison} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              Several models, including SARIMA, Exponential Smoothing, Prophet, and XGBoost, were trained on the dataset. Their performance was compared using metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE). The comparison helps select the best model for accurate workload prediction.
+              Several models, including SARIMA, Exponential Smoothing, Prophet,
+              and XGBoost, were trained on the dataset. Their performance was
+              compared using metrics such as Mean Absolute Error (MAE) and Root
+              Mean Squared Error (RMSE). The comparison helps select the best
+              model for accurate workload prediction.
             </p>
           </div>
 
@@ -133,7 +161,12 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={modelDeploy} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              The different models have been deployed in order to generate real-time predictions for the manufacturing plant. The deployment pipeline ensures that future workload predictions can be updated automatically as new data becomes available. The results are shown using a visual interface programmed in Streamlit, the precission of each model can also be consulted through this interface.
+              The different models have been deployed in order to generate
+              real-time predictions for the manufacturing plant. The deployment
+              pipeline ensures that future workload predictions can be updated
+              automatically as new data becomes available. The results are shown
+              using a visual interface programmed in Streamlit, the precission
+              of each model can also be consulted through this interface.
             </p>
           </div>
 
@@ -146,7 +179,10 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={sarima} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              The SARIMA model was trained to capture both seasonal and trend patterns in the data. It is particularly effective for time series with strong seasonal effects and was used to generate short-term workload forecasts.
+              The SARIMA model was trained to capture both seasonal and trend
+              patterns in the data. It is particularly effective for time series
+              with strong seasonal effects and was used to generate short-term
+              workload forecasts.
             </p>
           </div>
 
@@ -154,12 +190,15 @@ export default function IndustrialPrediction() {
           <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
             <h3 className="text-lg font-medium mb-4 text-gray-100">
               Exponential Smoothing Model Results (detail)
-            </h3> 
+            </h3>
             <div className="min-h-64 flex items-center justify-center">
               <ZoomableImage src={exponential} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              The Exponential Smoothing model was applied to capture trends and seasonal components by weighting recent observations more heavily. It provides smooth predictions suitable for gradual changes in workload.
+              The Exponential Smoothing model was applied to capture trends and
+              seasonal components by weighting recent observations more heavily.
+              It provides smooth predictions suitable for gradual changes in
+              workload.
             </p>
           </div>
 
@@ -172,7 +211,10 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={prophet} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              Prophet, developed by Facebook, is a robust model for forecasting time series with multiple seasonalities and holiday effects. It was trained on the plant data to produce accurate long-term forecasts.
+              Prophet, developed by Facebook, is a robust model for forecasting
+              time series with multiple seasonalities and holiday effects. It
+              was trained on the plant data to produce accurate long-term
+              forecasts.
             </p>
           </div>
 
@@ -185,13 +227,15 @@ export default function IndustrialPrediction() {
               <ZoomableImage src={XGBoost} alt="" />
             </div>
             <p className="text-gray-300 mt-4">
-              XGBoost, a gradient boosting algorithm, was used to capture non-linear relationships in the workload data. It complements the time series models by leveraging additional features and improving prediction accuracy.
+              XGBoost, a gradient boosting algorithm, was used to capture
+              non-linear relationships in the workload data. It complements the
+              time series models by leveraging additional features and improving
+              prediction accuracy.
             </p>
           </div>
-
         </section>
-      </main>
 
+      </main>
       <br />
 
       <Footer />
