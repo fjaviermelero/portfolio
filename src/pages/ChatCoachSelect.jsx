@@ -121,21 +121,6 @@ export const ChatCoachSelect = () => {
               Create New Conversation
             </h3>
 
-            <label className="block mb-4">
-              <span className="block mb-2 text-gray-300">Language:</span>
-              <select
-                value={selectedLang}
-                onChange={(e) => setSelectedLang(e.target.value)}
-                className="w-full bg-gray-700 text-gray-100 rounded-md p-2"
-              >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.label}>
-                    {lang.label.charAt(0).toUpperCase() + lang.label.slice(1)}
-                  </option>
-                ))}
-              </select>
-            </label>
-
             <label className="block mb-6">
               <span className="block mb-2 text-gray-300">Conversation Title:</span>
               <input
