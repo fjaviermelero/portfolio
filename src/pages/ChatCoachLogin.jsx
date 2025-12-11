@@ -11,7 +11,7 @@ export const ChatCoachLogin = () => {
   const navigate = useNavigate();
 
   const hardcodeHash =
-    "912021f888a598607098250846def9af0a6a44a83ee26fe5ee655f386e66cdb0"; 
+    "912021f888a598607098250846def9af0a6a44a83ee26fe5ee655f386e66cdb0";
   async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
@@ -27,10 +27,8 @@ export const ChatCoachLogin = () => {
     e.preventDefault();
     const passwordHash = await hashPassword(password);
     if (passwordHash === hardcodeHash) {
-
       console.log("Login successful");
-      navigate(`/project/ChatCoachSelect/${user}`)
-
+      navigate(`/project/ChatCoachSelect/${user}`);
     } else {
       console.log("Login failed");
       setError("Invalid username or password");
@@ -42,7 +40,20 @@ export const ChatCoachLogin = () => {
       <Navbar />
       <br />
 
-      <div className="flex justify-center items-center flex-grow">
+      <div className="flex flex-col items-center flex-grow">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
+          Chat Coach
+        </h1>
+        <div className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto space-y-4 mb-6 text-center">
+          <p>Practice any language with Chat Coach!</p>
+
+          <p>
+            Chat naturally in your chosen language and receive real-time
+            corrections and feedback to improve your grammar, vocabulary, and
+            fluency.
+          </p>
+        </div>
+
         <form
           onSubmit={handleSubmit}
           className="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm"
@@ -77,9 +88,7 @@ export const ChatCoachLogin = () => {
             />
           </div>
 
-          {error && (
-            <p className="text-red-500 text-center mb-4">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
           <div className="flex items-center justify-center">
             <button

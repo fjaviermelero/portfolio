@@ -16,13 +16,16 @@ export default function NowNews() {
         {/* Título y descripción */}
         <section className="text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
-            NowNews
+            Now News
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            Real-Time News Aggregator and Summarization Platform
-            <br />
-            This project is currently under development... <br />
-          </p>
+          <div className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto space-y-4">
+            <p>What is going on in Spain and the world?</p>
+            <p>
+              Now News provides real-time news updates and insights through
+              interactive dashboards generated using data scraping and ETL
+              processes.
+            </p>
+          </div>
 
           <div
             className="w-full mt-8"
