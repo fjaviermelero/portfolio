@@ -13,6 +13,8 @@ import exponential from "../assets/images/IndustrialPrediction/ExponentialSmooth
 import prophet from "../assets/images/IndustrialPrediction/Prophet.png";
 import XGBoost from "../assets/images/IndustrialPrediction/XGBoost.png";
 
+import { SiPandas, SiNumpy, SiScikitlearn, SiTensorflow } from "react-icons/si";
+
 export default function IndustrialPrediction() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +25,7 @@ export default function IndustrialPrediction() {
       <Navbar />
 
       <main className="pt-20 max-w-6xl mx-auto px-4 space-y-16">
-         {/* Título y descripción */}
+        {/* Título y descripción */}
         <section className="text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-400">
             Industrial Workload Prediction
@@ -48,6 +50,31 @@ export default function IndustrialPrediction() {
           </p>
 
           <br />
+
+          <div className="flex flex-wrap justify-center gap-6 text-4xl">
+            <div className="flex flex-col items-center">
+              <SiPandas className="text-blue-400" />
+              <span className="text-sm mt-2 text-gray-300">Pandas</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <SiNumpy className="text-red-400" />
+              <span className="text-sm mt-2 text-gray-300">NumPy</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <SiScikitlearn className="text-orange-500" />
+              <span className="text-sm mt-2 text-gray-300">SciKit Learn</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <SiTensorflow className="text-red-500" />
+              <span className="text-sm mt-2 text-gray-300">Tensor Flow</span>
+            </div>
+          </div>
+
+          <br />
+
           {/* Icono de descarga */}
           <a
             href="/Industrial_Workload_Prediction.pdf"
@@ -234,7 +261,6 @@ export default function IndustrialPrediction() {
             </p>
           </div>
         </section>
-
       </main>
       <br />
 

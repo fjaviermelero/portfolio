@@ -3,6 +3,10 @@ import Navbar from "../components/Navbar";
 import ZoomableImage from "../components/ZoomableImage";
 import Footer from "../components/Footer";
 
+import { SiApacheairflow, SiApachespark, SiGooglecloud } from "react-icons/si";
+
+import { FaDatabase } from "react-icons/fa";
+
 export default function NowNews() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,12 +31,59 @@ export default function NowNews() {
             </p>
           </div>
 
+          <br />
+
+          <div className="flex flex-wrap justify-center gap-6 text-4xl">
+            <div className="flex flex-col items-center">
+              <SiGooglecloud className="text-blue-400" />
+              <span className="text-sm mt-2 text-gray-300">GCP</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <SiApacheairflow className="text-red-400" />
+              <span className="text-sm mt-2 text-gray-300">Airflow</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <SiApachespark className="text-orange-500" />
+              <span className="text-sm mt-2 text-gray-300">Spark</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <FaDatabase className="text-red-500" />
+              <span className="text-sm mt-2 text-gray-300">Big Query</span>
+            </div>
+          </div>
+
           <div
             className="w-full mt-8"
             style={{ position: "relative", paddingBottom: "58.25%", height: 0 }}
           >
             <iframe
               src="https://lookerstudio.google.com/embed/reporting/55ea0f09-494a-47b2-ad25-af87aca8aa4e/page/eTThF"
+              title="NowNews Report"
+              frameBorder="0"
+              allowFullScreen
+              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+              }}
+            />
+          </div>
+
+          <br />
+
+          <div
+            className="w-full mt-8"
+            style={{ position: "relative", paddingBottom: "58.25%", height: 0 }}
+          >
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/e1dd8068-a5ab-4ba7-a685-1b240b046ff2/page/lWiiF"
               title="NowNews Report"
               frameBorder="0"
               allowFullScreen

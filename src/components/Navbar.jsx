@@ -147,6 +147,16 @@ export default function Navbar() {
                 >
                   Industrial Workload Predictor
                 </Link>
+
+                <HashLink
+                  smooth
+                  to="/project/NowNews"
+                  className="block px-6 py-2 hover:bg-gray-700 whitespace-nowrap"
+                  onClick={handleLinkClick}
+                >
+                  Now News
+                </HashLink>
+
                 <HashLink
                   smooth
                   to="/project/ChatCoachLogin"

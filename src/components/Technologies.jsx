@@ -27,7 +27,11 @@ import {
   SiExpress,
   SiSelenium,
   SiLinux,
-  SiMongodb,   // 🔹 Importar MongoDB
+  SiMongodb,
+  SiApacheairflow,
+  SiApachespark,
+  SiGooglecloud,
+  SiFastapi,
 } from "react-icons/si";
 
 export default function Technologies() {
@@ -38,8 +42,10 @@ export default function Technologies() {
       { name: "NumPy", icon: <SiNumpy className="text-blue-400" /> },
       { name: "Scikit Learn", icon: <SiScikitlearn className="text-orange-400" /> },
       { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500" /> },
+      { name: "PySpark", icon: <SiApachespark className="text-orange-500" /> },
       { name: "SQL", icon: <FaDatabase className="text-gray-300" /> },
-      { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> }, // ✅ Añadido aquí
+      { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
+      { name: "Airflow", icon: <SiApacheairflow className="text-red-400" /> },
       { name: "Tableau", icon: <SiTableau className="text-blue-500" /> },
       { name: "Power BI", icon: <FaChartPie className="text-yellow-500" /> },
       { name: "Looker", icon: <FaEye className="text-pink-400" /> },
@@ -56,16 +62,15 @@ export default function Technologies() {
       { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
       { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
       { name: "React", icon: <FaReact className="text-sky-400" /> },
-      { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-      { name: "Express", icon: <SiExpress className="text-gray-200" /> },
+      { name: "Fast API", icon: <SiFastapi className="text-green-500" /> },
       { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
       { name: "Github & Gitlab", icon: <SiGit className="text-red-500" /> },
       { name: "Selenium", icon: <SiSelenium className="text-green-400" /> },
       { name: "Linux", icon: <SiLinux className="text-yellow-500" /> },
+      { name: "GCP", icon: <SiGooglecloud className="text-blue-400" /> },
     ],
   };
 
-  // Variants para la animación en cascada
   const listVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
