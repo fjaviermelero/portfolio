@@ -145,7 +145,7 @@ export const ChatCoachLogin = () => {
             project on GitHub.
           </p>
           <a
-            href="https://github.com/fjaviermelero/NowNews"
+            href="https://github.com/fjaviermelero/ChatCoachBackend"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl shadow-md hover:bg-blue-600 transition-colors duration-300"
