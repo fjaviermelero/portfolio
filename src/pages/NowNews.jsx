@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ZoomableImage from "../components/ZoomableImage";
 import Footer from "../components/Footer";
+import NowNewsETLImage from "../assets/images/NowNewsETL.png";
 
 import { SiApacheairflow, SiApachespark, SiGooglecloud } from "react-icons/si";
 
@@ -130,6 +131,47 @@ export default function NowNews() {
               </svg>
               View on GitHub
             </a>
+          </div>
+
+          <br />
+
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 text-center">
+            <h3 className="text-lg font-medium mb-4 text-gray-100">
+              How does it work?
+            </h3>
+            <img
+              src={NowNewsETLImage}
+              alt="Now News ETL"
+              className="mx-auto w-full max-w-4xl h-auto rounded-lg"
+            ></img>
+
+            <br />
+
+            <p className="text-gray-300 mb-4">
+              A script is run every day using Google Cloud Run to scrape news
+              from various sources and store the raw data in Google Cloud
+              Storage (Bronze).
+              <br />
+              <br />
+              This data is then cleaned and transformed using Apache Spark
+              running on Google Cloud Dataproc to remove non-relevant
+              information, the processed data is saved in Google Cloud
+              Storage (Silver).
+              <br />
+              <br />
+              Another Apache Spark job aggregates the news by
+              categories and generates the final datasets, which are stored in
+              Google Big Query (Staging).
+              <br />
+              <br />
+              Finally, a star data model is built in Big Query (Gold) in order to facilitate
+              the analysis and visualization of the data using Looker Studio.
+              <br />
+              <br />
+              The entire ETL process is orchestrated using Apache Airflow
+              running on an on-premise Ubuntu homemade server.
+            </p>
+
           </div>
         </section>
       </main>
