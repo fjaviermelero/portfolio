@@ -7,6 +7,7 @@ import {ChatCoachCorrections} from "./pages/ChatCoachCorrections"
 import IndustrialPrediction from "./pages/IndustrialPrediction"
 import ChatCoachPage from "./pages/ChatCoachPage"
 import NowNews from "./pages/NowNews"
+import WhereAmI from "./pages/WhereAmI"
 
 function App() {
    return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/project/ChatCoachCorrections/:user/:language" element={<ChatCoachCorrections />} />
           <Route path="/project/ChatCoachPage/:user/:conversation" element={<ChatCoachPage />} />
           <Route path="/project/NowNews" element={<NowNews />} />
+          <Route path="/project/WhereAmI" element={<WhereAmI />} />
         </Routes>
       </BrowserRouter>
   )
