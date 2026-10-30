@@ -52,6 +52,28 @@ export default function WhereAmI() {
             />
           </div>
 
+
+                    <div
+            className="w-full mt-8"
+            style={{ position: "relative", paddingBottom: "58.25%", height: 0 }}
+          >
+            <iframe
+              src="https://datastudio.google.com/embed/reporting/469e79da-193d-475d-aedc-5563bdece217/page/dyXCG"
+              title="NowNews Report"
+              frameBorder="0"
+              allowFullScreen
+              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+              }}
+            />
+          </div>
+
           <br />
 
           <br />
